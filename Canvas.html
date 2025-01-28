@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Canvas</title>
+  <style>
+  canvas{
+    border:solid 1px red;
+    
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <p>default canvas</p>
+  <canvas></canvas>
+  <p>Rect</p>
+  <canvas id="rect" width="200" height="200"></canvas>
+  <script>
+    var a=document.getElementById("rect");
+    var b=a.getContext("2d");
+    b.fillStyle="red";
+    b.fillRect(50,50,100,100);
+    b.fill();
+    
+    
+    b.fillStyle="green";
+    b.globalAlpha="0.5";
+    b.fillRect(75,75,100,100);
+    b.fill();
+  </script>
+  
+  <p>circle</p>
+  <canvas id="circle" width="200" height="200"></canvas>
+  <script>
+    var a=document.getElementById("circle");
+    var b=a.getContext("2d");
+    b.fillStyle="red";
+    b.arc(100,100,60,0,2*3.142); // cx, cy,radius,begin point, 2*pi
+    b.fill();
+  </script>
+  
+  
+  <p>line</p>
+  <canvas id="line" width="200" height="200"></canvas>
+  <script>
+    var a=document.getElementById("line");
+    var b=a.getContext("2d");
+    b.beginPath();
+    
+    //circle
+    b.beginPath();
+    b.fillStyle="red";
+    b.arc(100,100,60,0,2*3.142); // cx, cy,radius,begin point, 2*pi
+    b.fill();
+  
+    
+    //line
+    b.beginPath();
+    b.strokeStyle="green"
+    b.moveTo(0,0)
+    b.lineTo(300,300);
+    b.stroke();
+    
+    
+    //line
+    b.beginPath();
+    b.strokeStyle="blue"
+    b.moveTo(100,100)
+    b.lineTo(200,0);
+    b.stroke();
+    
+    
+    //line
+    b.beginPath();
+    b.strokeStyle="orange"
+    b.moveTo(100,100)
+    b.lineTo(0,200);
+    b.stroke();
+  </script>
+  
+
+</body>
+
+</html>
