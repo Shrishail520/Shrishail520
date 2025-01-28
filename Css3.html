@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Example</title>
+  <style>
+  *{
+    margin:0px;
+    padding:0px;
+  }
+  #box{
+    height :250px;
+    width:250px;
+    background-color: blue;
+    text-align:center;
+    line-height: 250px;
+    color:white;
+    border-radius:50%;
+    box-shadow: 10px 10px 10px red;
+    text-shadow: 10px 10px 10px red;
+    float:left;
+  }
+  .main{
+    height: 250px;
+    width:250px;
+    border:solid 1px red;
+    float:left;
+  }
+  #rotate:hover{
+    transition : 3s;
+    transform: rotate(360deg);
+    background-color: green;
+    margin:10px;
+  }
+  #scale:hover{
+    transition : 3s;
+    transform: scale(2,2);
+  }
+  #skew:hover{
+    transition : 3s;
+    transform: skew(30deg,60deg);
+  }
+  #translate:hover{
+    transition : 3s;
+    transform: translate(60px,90px);
+  }
+  .animation{
+    background-color: red;
+    animation-name: shrishail;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes shrishail{
+    from{background-color: red;}
+    to{background-color: green;}
+  }
+  .lg{
+    
+    background: linear-gradient( 222deg,
+    rgba(15, 22, 110, 1) 12%,
+    rgba(179, 7, 10, 1) 84%);
+    
+  }
+  .rg{
+    background: radial-gradient(
+    100% 100% at 50% 50%,
+    rgba(122, 141, 204, 1) 12%,
+    rgba(179, 7, 10, 1) 84%);
+  }
+  .rgba{
+    background-color: rgba(227, 41, 41, 0.5);
+  }
+    
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="box">Shrishail</div>
+  <div  class="main" id="rotate">Rotato  </div>
+  <div  class="main" id="scale">scale  </div>
+  <div  class="main" id="skew">skew  </div>
+  <div  class="main" id="translate">transalate  </div>
+  <div  class="main animation" id="animation">animation</div>
+  <div  class="main lg" >Linear Graduent</div>
+  <div  class="main rg" >Radial Graduent</div>
+  <div  class="main rgba" >RGBA</div>
+  
+  
+
+</body>
+
+</html>
