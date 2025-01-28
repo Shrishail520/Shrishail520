@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Dropdown Validation</title>
+  <style>
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  </style>
+  <script>
+    const branches = {
+      Diploma: ["Computer Science", "Electronics", "Mechanical", "Civil"],
+      PUC: ["Science", "Commerce", "Arts"],
+      ITI: ["Fitter", "Electrician", "Welder", "Plumber"]
+    };
+
+    function populateBranches() {
+      const educationDropdown = document.getElementById("education");
+      const branchDropdown = document.getElementById("branch");
+      const selectedEducation = educationDropdown.value;
+
+      // Clear existing options in the branch dropdown
+      branchDropdown.innerHTML = '<option value="">Select Branch</option>';
+
+      // Populate branches based on selected education level
+      if (branches[selectedEducation]) {
+        branches[selectedEducation].forEach(branch => {
+          const option = document.createElement("option");
+          option.value = branch;
+          option.textContent = branch;
+          branchDropdown.appendChild(option);
+        });
+      }
+    }
+
+    function validateForm(event) {
+      const educationDropdown = document.getElementById("education");
+      const branchDropdown = document.getElementById("branch");
+      const educationError = document.getElementById("educationError");
+      const branchError = document.getElementById("branchError");
+      let isValid = true;
+
+      // Validate education dropdown
+      if (educationDropdown.value === "") {
+        educationError.textContent = "Please select an education level.";
+        isValid = false;
+      } else {
+        educationError.textContent = "";
+      }
+
+      // Validate branch dropdown
+      if (branchDropdown.value === "") {
+        branchError.textContent = "Please select a branch.";
+        isValid = false;
+      } else {
+        branchError.textContent = "";
+      }
+
+      if (!isValid) {
+        event.preventDefault(); // Prevent form submission if invalid
+      } else {
+        alert(`Form submitted successfully!\nEducation: ${educationDropdown.value}\nBranch: ${branchDropdown.value}`);
+      }
+    }
+  </script>
+</head>
+<body>
+  <form onsubmit="validateForm(event)">
+    <div>
+      <label for="education">Education Level:</label>
+      <select id="education" name="education" onchange="populateBranches()">
+        <option value="">Select Education Level</option>
+        <option value="Diploma">Diploma</option>
+        <option value="PUC">PUC</option>
+        <option value="ITI">ITI</option>
+      </select>
+      <div id="educationError" class="error"></div>
+    </div>
+    <div>
+      <label for="branch">Branch:</label>
+      <select id="branch" name="branch">
+        <option value="">Select Branch</option>
+      </select>
+      <div id="branchError" class="error"></div>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
