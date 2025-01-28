@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form</title>
+  <style>
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
+  #form{
+    height:350px;
+    width:400px;
+    background-color: lightblue;
+    margin:auto;
+    padding: 12px;
+    
+  }
+  input[type="text"]
+  {
+    height:30px;
+  }
+  input[type="Email"]
+  {
+    height:30px;
+  }
+  input[type="submit"]
+  {
+    height:30px;
+    background: green;
+    color: white;
+  }
+    
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <form>
+  <div id="form">
+    <label>Name</label><br>
+    <input type="text" required name="fullname"> <br>
+    <label>Email</label><br>
+    <input type="Email" required name="Email"><br>
+    <label>Contact</label><br>
+    <input type="text" required name="contactno"><br>
+    <label>Message</label> <br>
+    <textarea cols="40" rows="10" required name="message"></textarea> <br>
+    <input type="submit" id="cta">
+    </form>
+    
+  </div>
+
+</body>
+
+</html>
