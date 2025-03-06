@@ -42,6 +42,18 @@ $ins="insert into feedback(name,email, contactno, message, datetime,Values('$nam
 
 }
 
+$status=mysqli_query($con,$ins);//for executing query
+if($status)
+{
+echo"Success";
+}
+else
+{
+echo"Fail";
+}
+}
+
+
 
 
 
