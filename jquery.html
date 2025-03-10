@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JQuery</title>
+  <style type="text/css" media="all">
+  .box{
+      height: 200px;
+      width: 200px;
+      background-color: darkgray;
+     }
+  .extra{
+    border: 5px solid red;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" charset="utf-8">
+  $(function (){
+ $("#hide").click(function(){$(".box").hide(3000)})
+ $("#show").click(function(){$(".box").show(3000)})
+ $("#toggle").click(function(){$(".box").toggle(1000)})
+ $("#fadein").click(function(){$(".box").fadeIn(3000)})
+ $("#fadeout").click(function(){$(".box").fadeOut(3000)})
+ $("#fadetoggle").click(function(){$(".box").fadeToggle(3000)})
+ $("#fadeto").click(function(){$(".box").fadeTo(3000,0.5)})
+ $("#slideup").click(function(){$(".box").slideUp(3000)})
+ $("#slidedown").click(function(){$(".box").slideDown(3000)})
+ $("#slidetoggle").click(function(){$(".box").slideToggle(3000)})
+ $("#addclass").click(function(){$(".box").addClass("extra")})
+ $("#removeclass").click(function(){$(".box").removeClass("extra")})
+ $("#css").click(function(){$(".box").css({"color":"black"})})
+ $("#append").click(function(){$(".box").append('Diginsare Technology')})
+ $("#prepend").click(function(){$(".box").prepend('Diginsare Technology')})
+  $("#prev").click(function(){$("#demo").prev().css({"color":"red"})})
+  $("#next").click(function(){$("#demo").prev().css({"color":"red"})})
+  $("#prevall").click(function(){$("#demo").prevaAll().css({"color":"red"})})
+  $("#nextall").click(function(){$("#demo").nextAll().css({"color":"red"})})
+
+    
+  })
+  
+  </script>
+  
+</head>
+
+
+<body>
+  
+    
+  </div>
+  <p>Diginsare</p>
+  <div class="box">Hi</div>
+  <h1>Welcome to diginsare</h1>
+  <p id="demo">Welcome to diginsare</p>
+  <h2>Welcome to diginsare </h2>
+  <button id="hide">Hide</button>
+  <button id="show">Show</button>
+  <button id="toggle">Toggle</button>
+  <button id="fadein">Fadein</button>
+  <button id="fadeout">fadeout</button>
+  <button id="fadetoggle">fadeToggle</button>
+  <button id="fadeto">fadeTo</button>
+  <button id="slideup">slideup</button>
+  <button id="slidedown">slidedown</button>
+  <button id="slidetoggle">slidetoggle</button>
+  <button id="addclass">addclass</button>
+  <button id="removeclass">removeclass</button>
+  <button id="css">css</button>
+  <button id="append">Append</button>
+  <button id="prepend">prepend</button>
+  <button id="prev">prev</button>
+  <button id="next">next</button>
+  <button id="prevall">prevall</button>
+  <button id="nextall">nextall</button>
+  
+  
+</body>
+
+
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Fountain</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            text-align: center;
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .fountain {
+            position: relative;
+            width: 500px;
+            height: 300px;
+            margin: 50px auto;
+            background: radial-gradient(circle, #222, black);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .water {
+            position: absolute;
+            bottom: 0;
+            width: 10px;
+            height: 0;
+            background: cyan;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+
+        .jet1 { left: 50px; }
+        .jet2 { left: 150px; }
+        .jet3 { left: 250px; }
+        .jet4 { left: 350px; }
+        .jet5 { left: 450px; }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fountain">
+        <div class="water jet1"></div>
+        <div class="water jet2"></div>
+        <div class="water jet3"></div>
+        <div class="water jet4"></div>
+        <div class="water jet5"></div>
+    </div>
+
+    <button id="startFountain">Start Fountain</button>
+
+    <script>
+        $(document).ready(function() {
+            $("#startFountain").click(function() {
+                function animateJet(jet, height, delay) {
+                    $(jet).animate(
+                        { height: height, bottom: "200px", opacity: 1 },
+                        500
+                    ).animate(
+                        { height: "0px", bottom: "0px", opacity: 0 },
+                        500,
+                        function() {
+                            setTimeout(function() {
+                                animateJet(jet, height, delay);
+                            }, delay);
+                        }
+                    );
+                }
+
+                animateJet(".jet1", "150px", 100);
+              
+                animateJet(".jet2", "180px", 300);
+                animateJet(".jet3", "220px", 200);
+                animateJet(".jet4", "160px", 400);
+                animateJet(".jet5", "200px", 250);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Water Fountain</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .fountain {
+            position: relative;
+            width: 300px;
+            height: 250px;
+            margin: 50px auto;
+            background: radial-gradient(circle, #222, black);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .water-drop {
+            position: absolute;
+            bottom: 0;
+            width: 5px;
+            height: 10px;
+            background: cyan;
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Water Fountain using jQuery</h2>
+    <div class="fountain"></div>
+    <button id="startWater">Start Water</button>
+
+    <script>
+        $(document).ready(function() {
+            $("#startWater").click(function() {
+                setInterval(function() {
+                    let xPos = Math.random() * 280 + 10; // Random horizontal position
+                    let waterDrop = $("<div class='water-drop'></div>").css({
+                        left: xPos + "px"
+                    });
+
+                    $(".fountain").append(waterDrop);
+
+                    $(waterDrop).animate(
+                        { bottom: "200px", opacity: 0 },
+                        800,
+                        function() {
+                            $(this).remove();
+                        }
+                    );
+                }, 100);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
