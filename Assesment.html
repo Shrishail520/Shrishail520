@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Dynamic Form</h2>
+
+        <!-- Text Input -->
+        <label>Enter Your Name:</label>
+        <input type="text" id="inputText">
+        <label></label>
+        <input type="text" id="previewText" readonly>
+
+        <!-- Dropdowns -->
+        <label>Select Country:</label>
+        <select id="country">
+            <option value="">Select Country</option>
+        </select>
+
+        <label>Select State:</label>
+        <select id="state">
+            <option value="">Select State</option>
+        </select>
+
+        <label>Select City:</label>
+        <select id="city">
+            <option value="">Select City</option>
+        </select>
+
+        <button id="submit">Submit</button>
+
+        <!-- Output -->
+        <p id="output"></p>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Live text preview
+            $("#inputText").on("input", function () {
+                $("#previewText").val($(this).val());
+            });
+
+            // Country, State, City Data
+            let data = {
+                "USA": {
+                    "California": ["Los Angeles", "San Diego", "San Francisco"],
+                    "Texas": ["Houston", "Dallas", "Austin"]
+                },
+                "India": {
+                    "Maharashtra": ["Mumbai", "Pune", "Nagpur"],
+                    "Delhi": ["New Delhi", "Noida", "Gurgaon"],
+                    "Kalaburagi":["Afzalpur", "Aland", "Bidar", "Shivmogga"]
+                },
+                "Canada": {
+                    "Ontario": ["Toronto", "Ottawa", "Hamilton"],
+                    "Quebec": ["Montreal", "Quebec City", "Laval"]
+                }
+            };
+
+            // Populate country dropdown
+            for (let country in data) {
+                $("#country").append(`<option value="${country}">${country}</option>`);
+            }
+
+            // Populate states based on country selection
+            $("#country").change(function () {
+                let country = $(this).val();
+                $("#state").empty().append(`<option value="">Select State</option>`);
+                $("#city").empty().append(`<option value="">Select City</option>`);
+                if (country) {
+                    for (let state in data[country]) {
+                        $("#state").append(`<option value="${state}">${state}</option>`);
+                    }
+                }
+            });
+
+            // Populate cities based on state selection
+            $("#state").change(function () {
+                let country = $("#country").val();
+                let state = $(this).val();
+                $("#city").empty().append(`<option value="">Select City</option>`);
+                if (state) {
+                    data[country][state].forEach(city => {
+                        $("#city").append(`<option value="${city}">${city}</option>`);
+                    });
+                }
+            });
+
+            // Submit button
+            $("#submit").click(function () {
+                let text = $("#inputText").val();
+                let country = $("#country").val();
+                let state = $("#state").val();
+                let city = $("#city").val();
+
+                if (!text || !country || !state || !city) {
+                    alert("Please fill all fields!");
+                    return;
+                }
+
+                $("#output").html(`<strong>Entered Text:</strong> ${text} <br> 
+                                  <strong>Country:</strong> ${country} <br> 
+                                  <strong>State:</strong> ${state} <br> 
+                                  <strong>City:</strong> ${city}`);
+            });
+        });
+    </script>
+
+</body>
+</html>
