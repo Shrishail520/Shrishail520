@@ -1,0 +1,65 @@
+<<p><b> Enter Number</b></p> <br>
+<input type="text" id="str"> <br><br>
+<input type="button" value="Submit" onclick="check()"><br>
+<script>
+  
+  function check ()
+  {
+  
+    var a=document.getElementById("str").value;
+    n=Number(a); //coverting string to number
+    document.getElementById("fixed2").innerHTML=n.toFixed(2);
+    document.getElementById("exponential2").innerHTML=n.toExponential(2);
+    document.getElementById("sqrt").innerHTML=Math.sqrt(n);
+    document.getElementById("roundoff").innerHTML=Math.round(n);
+    document.getElementById("pow").innerHTML=Math.pow(n,2);
+    document.getElementById("ceil").innerHTML=Math.ceil(n);
+    document.getElementById("floor").innerHTML=Math.floor(n);
+    
+    
+  }
+  
+  </script>
+<table border="1">
+  
+  <tr>
+    <td>tofixed(2)</td>
+    <td id="fixed2"></td>
+  </tr>
+    
+  <tr>
+    <td>toexponetial(2)</td>
+    <td id="exponential2"></td>
+  </tr>  
+
+  <tr>
+    <td>sqrt</td>
+    <td id="sqrt"></td>
+  </tr>
+  
+  
+  <tr>
+    <td>roundoff</td>
+    <td id="roundoff"></td>
+  </tr>
+  
+  
+  <tr>
+    <td>pow</td>
+    <td id="pow"></td>
+  </tr>
+  
+  
+  <tr>
+    <td>ceil</td>
+    <td id="ceil"></td>
+  </tr>
+  
+  
+  <tr>
+    <td>Floor</td>
+    <td id="floor"></td>
+  </tr>
+ 
+  
+</table>
