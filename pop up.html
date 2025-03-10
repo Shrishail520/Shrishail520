@@ -1,0 +1,25 @@
+<p>Alert</p>
+<button onclick="alert('I malert with OK button')">Alert()</button>
+
+<p>confirm</p>
+<button onclick="confirm('Imalert with OK & CANCEL button')">CONFIRM</button>
+<p>prompt</p>
+<button onclick="prompt('I malert with OK,CANCEL &Textbox')">Prompt()</button><br /><br /> 
+
+
+
+<button onclick="tt()">Confirm ()click me</button>
+<script>
+function tt()
+{
+  var a= confirm("Please check which button clicked ");
+  if(a==true)
+  {
+    alert("clicked OK button");
+    
+  }
+else{
+  alert('Clicked CANCEL button');
+}
+}
+</script>
