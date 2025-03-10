@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Static Calculation></title>
+</head>
+
+<body>
+  <script>
+    var a=10;
+    var b=10;
+    var tot=a+b;
+    var diff=a-b;
+    var div=a/b;
+    var mul=a*b;
+    document.writeln("Sum:"+tot);
+    document.write("<br>");
+    document.writeln("Diff:"+diff);
+    document.write("<br>");
+    document.writeln("Division:"+div);
+    document.write("<br>");
+    document.writeln("Multiplication:"+mul);
+    document.write("<br>");
+    
+  </script>
+  
+  
+  <p>Dynamic Calculation</p><br>
+  <input type="text" id="num1"><br>
+  <p>Enter Number 2</p><br>
+  <input type="text" id="num2"> <br>
+  <input type="Submit" onclick="check()">
+  
+  <script>
+    function check()
+    {
+      var a=document.getElementById("num1").value;
+      var b=document.getElementById("num2").value;
+      tot=Number(a)+Number(b);
+      alert("Sum:"+tot);
+    }
+  </script><br>
+  
+  <br>
+  
+  
+  <p>Onclick()</p>
+  <button onclick="alert('I will popup after single click')">OnClick()</button>
+  
+  
+  <p>dbllcick()</p>
+  <button ondblclick="alert('I will popup after double click')">dblcik()</button>
+  
+  
+  <p>mouse</p>
+  <button onmouseenter="alert('i m in')" onmouseleave="alert('I am out')"> take courser here</button>
+  
+  <p>Key events</p>
+  <input type="text" id="txt" onkeyup="tt()">
+  <script>
+    function tt()
+    {
+      document.getElementById("txt").style.background="red";
+    }
+  </script>
+  
+  
+  <p>Key events</p>
+  <input type="text" id="txt2" onkeypress="tt1()">
+  <script>
+    function tt1()
+    {
+      document.getElementById("txt2").style.background="red";
+    }
+  </script>
+  
+
+</body>
+
+</html> 
