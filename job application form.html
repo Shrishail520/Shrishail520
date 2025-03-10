@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Application Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .radio-group {
+            margin-top: 10px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+        }
+    </style>
+    <script>
+        // Function to validate Full Name (Only Alphabets)
+        function validateName(input) {
+            const regex = /^[A-Za-z\s]+$/;
+            if (!regex.test(input.value)) {
+                alert("Invalid input! Please enter only alphabets in the Full Name field.");
+                input.value = input.value.replace(/[^A-Za-z\s]/g, '');
+            }
+        }
+
+        // Function to show submitted data on Submit button click
+        function display() {
+            // Get form data
+            const fullName = document.getElementById("full_name").value;
+            const dob = document.getElementById("dob").value;
+            const ssn = document.getElementById("ssn").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const address = document.getElementById("address").value;
+            const jobTitle = document.getElementById("job_title").value;
+            const salary = document.getElementById("salary").value;
+            const availability = document.querySelector('input[name="availability"]:checked').value;
+            const relocate = document.querySelector('input[name="relocate"]:checked').value;
+            const workCountry = document.getElementById("work_country").value;
+            const workCity = document.getElementById("work_city").value;
+
+            // Display the data below the form
+            const output = document.getElementById("output");
+            output.innerHTML = `
+                <h3>Submitted Data</h3>
+                <p><strong>Full Name:</strong> ${fullName}</p>
+                <p><strong>Date of Birth:</strong> ${dob}</p>
+                <p><strong>Social Security Number (SSN):</strong> ${ssn}</p>
+                <p><strong>Email Address:</strong> ${email}</p>
+                <p><strong>Phone Number:</strong> ${phone}</p>
+                <p><strong>Address:</strong> ${address}</p>
+                <p><strong>Desired Job Title:</strong> ${jobTitle}</p>
+                <p><strong>Desired Salary:</strong> $${salary}</p>
+                <p><strong>Availability:</strong> ${availability}</p>
+                <p><strong>Willingness to Relocate:</strong> ${relocate}</p>
+                <p><strong>Country Authorized to Work In:</strong> ${workCountry}</p>
+                <p><strong>City Authorized to Work In:</strong> ${workCity}</p>
+            `;
+        }
+
+        // Function to show alert when First Name is entered
+        function showFirstNameAlert() {
+            const firstName = document.getElementById("first_name").value;
+            alert("First Name: " + firstName);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Job Application Form</h2>
+        <form id="job-form">
+            <!-- Personal Information -->
+            <h3>Personal Information</h3>
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" oninput="showFirstNameAlert()" required>
+
+            <label for="full_name">Full Name:</label>
+            <input type="text" id="full_name" name="full_name" oninput="validateName(this)" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="ssn">Social Security Number (SSN):</label>
+            <input type="text" id="ssn" name="ssn" placeholder="XXX-XX-XXXX" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+
+            <!-- Employment Information -->
+            <h3>Employment Information</h3>
+            <label for="job_title">Desired Job Title:</label>
+            <input type="text" id="job_title" name="job_title" required>
+
+            <label for="salary">Desired Salary ($):</label>
+            <input type="text" id="salary" name="salary" required>
+
+            <!-- Availability -->
+            <h3>Availability</h3>
+            <div class="radio-group">
+                <input type="radio" id="availability_fulltime" name="availability" value="Full Time" required>
+                <label for="availability_fulltime">Full Time</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="availability_parttime" name="availability" value="Part Time">
+                <label for="availability_parttime">Part Time</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="availability_other" name="availability" value="Other">
+                <label for="availability_other">Other</label>
+            </div>
+
+            <!-- Willingness to Relocate -->
+            <h3>Willingness to Relocate</h3>
+            <div class="radio-group">
+                <input type="radio" id="relocate_yes" name="relocate" value="Yes" required>
+                <label for="relocate_yes">Yes</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="relocate_no" name="relocate" value="No">
+                <label for="relocate_no">No</label>
+            </div>
+
+            <!-- Authorized to Work in Country -->
+            <h3>Authorized to Work in Country</h3>
+            <label for="work_country">Select Country:</label>
+            <select id="work_country" name="work_country" required>
+                <option value="">Please select a country</option>
+                <option value="USA">United States</option>
+                <option value="Canada">Canada</option>
+                <option value="India">India</option>
+                <option value="Australia">Australia</option>
+            </select>
+
+            <label for="work_city">Select City:</label>
+            <select id="work_city" name="work_city" required>
+                <option value="">Please select a city</option>
+            </select>
+
+            <!-- Submit Button with onclick event -->
+            <button type="button" class="submit-btn" onclick="display()">Submit Application</button>
+        </form>
+
+        <!-- Output Section -->
+        <div id="output" class="output"></div>
+    </div>
+</body>
+</html>
