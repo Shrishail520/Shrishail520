@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phone Number Validation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .container {
+      display: inline-block;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .submit-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .cancel-btn {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Phone Number Validation</h2>
+  <form id="phoneForm">
+    <input id="phone" type="tel" placeholder="Enter phone number" required>
+    <div class="buttons">
+      <button type="button" class="submit-btn" onclick="validatePhone()">Submit</button>
+      <button type="reset" class="cancel-btn">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+<script>
+  const phoneInput = document.querySelector("#phone");
+  const iti = intlTelInput(phoneInput, {
+    initialCountry: "auto",
+    geoIpLookup: function (callback) {
+      fetch("https://ipapi.co/json/")
+        .then((response) => response.json())
+        .then((data) => callback(data.country_code))
+        .catch(() => callback("US"));
+    },
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+  });
+
+  function validatePhone() {
+    const isValid = iti.isValidNumber();
+    const number = iti.getNumber();
+    if (isValid) {
+      alert(`Valid phone number: ${number}`);
+    } else {
+      alert("Invalid phone number. Please try again.");
+    }
+  }
+</script>
+
+</body>
+</html>
