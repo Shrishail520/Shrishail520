@@ -1,0 +1,20 @@
+
+    <p id="digitalClock">Digital Clock</p>
+    <script>
+      d=new Date();
+      hours=d.getHours();
+      minutes=d.getMinutes();
+      seconds=d.getSeconds();
+      
+      //
+      hours=hours<10 ? "0" + hours : hours;
+      minutes=minutes<10 ? "0" + minutes:minutes;
+      seconds=seconds<10 ? "0" + seconds:seconds;
+      
+    </script>
+    <table border="1">
+      <tr><td>Hours</td><td><script>document.write(hours)</script></td></tr>
+      <tr><td>Minutes</td><td><script>document.write(minutes)</script></td></tr>
+      <tr><td>Seconds</td><td><script>document.write(seconds)</script></td></tr>
+      
+    </table>
