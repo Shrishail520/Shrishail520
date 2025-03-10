@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Box</title>
+  <style>
+  *{
+    margin:0px;
+    padding:0px;
+  }
+  #box{
+    height:400px;
+    width:400px;
+    margin:auto;
+    position :relative;
+    border:solid 1px red;
+  }
+  #one{
+    height:150px;
+    width:150px;
+    background-color: red;
+    position: absolute;
+    left: 10px;
+    bottom:10px;
+    z-index: 4;
+   
+  }
+  #two{
+    height:150px;
+    width:150px;
+    background-color:green;
+    position:absolute;
+    left:80px;
+    bottom:80px;
+  }
+  #three{
+    
+    height:150px;
+    width:150px;
+    background-color:yellow;
+    position:absolute;
+    left:170px;
+    bottom:170px;
+    
+  }
+  #four{
+    
+    height:150px;
+    width:150px;
+    background-color:lightblue;
+    position:absolute;
+    left:240px;
+    bottom:240px;
+  }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="box">
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <div id="four"></div>
+  </div>
+
+</body>
+
+</html>
