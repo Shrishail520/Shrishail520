@@ -1,0 +1,85 @@
+<p>for loop with increment </p>
+<script>
+  for(i=0;i<5;i++)
+  {
+    document.write(i);
+    document.write("<br>");
+  }
+  
+</script>
+
+<p>for loop with decrement </p>
+<script>
+  for(i=5;i>0;i--)
+  {
+    document.write(i);
+    document.write("<br>");
+  }
+  
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyramid Pattern</title>
+</head>
+<body>
+    <h2>Pyramid Pattern in JavaScript</h2>
+    <pre id="pyramid"></pre>
+
+    <script>
+        function createPyramid(rows) {
+            let pyramid = "";
+            for (let i = 1; i <= rows; i++) {
+                let spaces = " ".repeat(rows - i);
+                let stars = "*".repeat(2 * i - 1);
+                pyramid += spaces + stars + "\n";
+            }
+            document.getElementById("pyramid").textContent = pyramid;
+        }
+
+        createPyramid(5); // Change number for different sizes
+    </script>
+</body>
+</html>
+
+
+setinterval()
+<button onclick="tt()"> clickme</button>
+<script>
+function tt()
+{
+   setInterval( function(){ alert(' I m popup')},5000);
+}
+</script>
+
+settimeout()
+<button onclick="tt1()"> clickme</button>
+<script>
+function tt1()
+{
+   setTimeout( function(){ alert(' I m popup')},5000);
+}
+</script>
+
+
+
+
+ <p>Pyramid Pattern in JavaScript</p>
+    <pre id="pyramid"></pre>
+
+    <script>
+        function createPyramid(rows) {
+            let pyramid = "";
+            for (let i = 1; i <= rows; i++) {
+                let spaces = " ".repeat(rows - i);
+                let stars = "*".repeat(2 * i - 1);
+                pyramid += spaces + stars + "\n";
+            }
+            document.getElementById("pyramid").textContent = pyramid;
+        }
+
+        createPyramid(5); // Change number for different sizes
+    </script>
